@@ -308,7 +308,7 @@ public class BukkitService implements SettingsDependent {
     public void sendBungeeMessage(byte[] bytes) {
         Player player = Iterables.getFirst(getOnlinePlayers(), null);
         if (player != null) {
-            player.sendPluginMessage(authMe, "BungeeCord", bytes);
+            player.sendPluginMessage(authMe, "AuthMe", bytes);
         }
     }
 

@@ -44,8 +44,8 @@ public class BungeeSender implements SettingsDependent {
 
         if (this.isEnabled) {
             final Messenger messenger = plugin.getServer().getMessenger();
-            if (!messenger.isOutgoingChannelRegistered(plugin, "BungeeCord")) {
-                messenger.registerOutgoingPluginChannel(plugin, "BungeeCord");
+            if (!messenger.isOutgoingChannelRegistered(plugin, "AuthMe")) {
+                messenger.registerOutgoingPluginChannel(plugin, "AuthMe");
             }
         }
     }
@@ -64,8 +64,6 @@ public class BungeeSender implements SettingsDependent {
 
     private void sendForwardedBungeecordMessage(final String subChannel, final String... data) {
         final ByteArrayDataOutput out = ByteStreams.newDataOutput();
-        out.writeUTF("Forward");
-        out.writeUTF("ONLINE");
         out.writeUTF(subChannel);
         final ByteArrayDataOutput dataOut = ByteStreams.newDataOutput();
         for (final String element : data) {
@@ -106,9 +104,9 @@ public class BungeeSender implements SettingsDependent {
                 return;
             }
             if (type.isBroadcast()) {
-                sendForwardedBungeecordMessage("AuthMe.v2.Broadcast", type.getId(), playerName.toLowerCase());
+                sendForwardedBungeecordMessage("v2.Broadcast", type.getId(), playerName.toLowerCase());
             } else {
-                sendBungeecordMessage("AuthMe.v2", type.getId(), playerName.toLowerCase());
+                sendBungeecordMessage("v2", type.getId(), playerName.toLowerCase());
             }
         }
     }
