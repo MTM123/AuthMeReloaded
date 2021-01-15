@@ -44,8 +44,8 @@ public class BungeeSender implements SettingsDependent {
 
         if (this.isEnabled) {
             final Messenger messenger = plugin.getServer().getMessenger();
-            if (!messenger.isOutgoingChannelRegistered(plugin, "AuthMe")) {
-                messenger.registerOutgoingPluginChannel(plugin, "AuthMe");
+            if (!messenger.isOutgoingChannelRegistered(plugin, "authme:main")) {
+                messenger.registerOutgoingPluginChannel(plugin, "authme:main");
             }
         }
     }
