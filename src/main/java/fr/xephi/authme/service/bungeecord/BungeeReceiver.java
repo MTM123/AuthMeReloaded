@@ -45,8 +45,8 @@ public class BungeeReceiver implements PluginMessageListener, SettingsDependent 
 
         if (this.isEnabled) {
             final Messenger messenger = plugin.getServer().getMessenger();
-            if (!messenger.isIncomingChannelRegistered(plugin, "BungeeCord")) {
-                messenger.registerIncomingPluginChannel(plugin, "BungeeCord", this);
+            if (!messenger.isIncomingChannelRegistered(plugin, "authme:main")) {
+                messenger.registerIncomingPluginChannel(plugin, "authme:main", this);
             }
         }
     }
